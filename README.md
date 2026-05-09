@@ -132,4 +132,4 @@ This project is licensed under the MIT License.
 Developed by Muskan
 
 GitHub Repository:
-https://github.com/your-username/Shopify-custom-storefront
+https://github.com/muskanyadav24/Shopify-custom-storefront
