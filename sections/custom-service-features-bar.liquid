@@ -1,0 +1,290 @@
+<section class="features-bar">
+  <div class="custom-container">
+
+    <div class="features-wrapper">
+
+      {% for block in section.blocks %}
+
+        <div class="feature-item">
+
+          <div class="feature-icon">
+
+            {% assign image = block.settings.feature_icon %}
+
+            {% if image != blank %}
+
+              <img
+                src="{{ image | image_url: width: 200 }}"
+                alt="{{ block.settings.feature_title }}"
+                width="60"
+                height="60"
+                loading="lazy">
+            {% endif %}
+          </div>
+
+          <div class="feature-content">
+
+            <h4>{{ block.settings.feature_title }}</h4>
+
+            <p>{{ block.settings.feature_text }}</p>
+
+          </div>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<style>
+
+.features-bar{
+  background: {{ section.settings.section_bg }};
+  padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+}
+
+.custom-container{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 15px;
+}
+
+.features-wrapper{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+.feature-item{
+  display:flex;
+  flex-wrap: wrap;
+  {% comment %} justify-content: center; {% endcomment %}
+  align-items:flex-start;
+  gap:18px;
+}
+
+.feature-icon{
+  width:{{ section.settings.icon_box_size }}px;
+  height:{{ section.settings.icon_box_size }}px;
+  min-width:{{ section.settings.icon_box_size }}px;
+  border-radius:{{ section.settings.icon_radius }}px;
+  background:{{ section.settings.icon_bg }};
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.feature-icon img{
+  width:{{ section.settings.icon_size }}px;
+  height:{{ section.settings.icon_size }}px;
+  object-fit:contain;
+  display:block;
+}
+
+.feature-content h4{
+  margin:0 0 8px;
+  color:{{ section.settings.heading_color }};
+  font-size:{{ section.settings.heading_size }}px;
+  font-weight:600;
+}
+
+.feature-content p{
+  margin:0;
+  color:{{ section.settings.text_color }};
+  font-size:{{ section.settings.text_size }}px;
+  line-height:1.7;
+}
+
+
+@media(max-width:991px){
+
+.features-wrapper{
+  grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+@media(max-width:767px){
+
+.features-wrapper{
+  grid-template-columns:1fr;
+  gap:25px;
+}
+
+.feature-item{
+  gap:15px;
+}
+
+}
+
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Features Bar",
+  "settings": [
+
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#14152f"
+    },
+
+    {
+      "type": "color",
+      "id": "icon_bg",
+      "label": "Icon Background",
+      "default": "#232542"
+    },
+
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#a9abc4"
+    },
+
+    {
+      "type": "range",
+      "id": "icon_box_size",
+      "label": "Icon Box Size",
+      "min": 40,
+      "max": 120,
+      "step": 2,
+      "default": 48
+    },
+
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon Size",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "default": 22
+    },
+
+    {
+      "type": "range",
+      "id": "icon_radius",
+      "label": "Icon Border Radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text Size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "default": 13
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    }
+
+  ],
+
+
+  "blocks":[
+
+    {
+      "type":"feature",
+      "name":"Feature Item",
+      "settings":[
+
+        {
+          "type":"image_picker",
+          "id":"feature_icon",
+          "label":"Feature Icon"
+        },
+
+        {
+          "type":"text",
+          "id":"feature_title",
+          "label":"Feature Title",
+          "default":"Free Delivery"
+        },
+
+        {
+          "type":"textarea",
+          "id":"feature_text",
+          "label":"Feature Text",
+          "default":"Free shipping on all orders above ₹999. Pan-India delivery in 2–5 business days."
+        }
+
+      ]
+    }
+
+  ],
+
+
+  "presets":[
+    {
+      "name":"Features Bar",
+      "blocks":[
+        {
+          "type":"feature"
+        },
+        {
+          "type":"feature"
+        },
+        {
+          "type":"feature"
+        },
+        {
+          "type":"feature"
+        }
+      ]
+    }
+  ]
+
+}
+{% endschema %}

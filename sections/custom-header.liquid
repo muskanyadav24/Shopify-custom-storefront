@@ -1,0 +1,218 @@
+<header class="custom-header">
+  <div class="page-width custom-container header-wrapper">
+    <!-- Logo -->
+    <div class="header-logo">
+      {% if section.settings.logo != blank %}
+        <a href="{{ routes.root_url }}">
+          <img
+            src="{{ section.settings.logo | image_url }}"
+            alt="Logo"
+            width="160"
+            height="auto"
+          >
+        </a>
+      {% else %}
+        <h2>{{ shop.name }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <nav class="header-nav">
+      <ul>
+        {% for link in linklists[section.settings.menu].links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- Right Side -->
+    <div class="header-right">
+      {% if section.settings.show_search %}
+        <form action="/search" method="get" class="header-search">
+          <input
+            type="text"
+            name="q"
+            placeholder="Search products..."
+          >
+        </form>
+      {% endif %}
+
+      <a href="/account" class="header-btn">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+    .custom-container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .custom-header {
+      background: {{ section.settings.bg_color }};
+      padding: 16px 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .header-logo img {
+      max-width: 160px;
+      display: block;
+    }
+
+    .header-nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: {{ section.settings.text_color }};
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .header-nav a:hover {
+      color: {{ section.settings.accent_color }};
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .header-search input {
+      padding: 10px 14px;
+      border-radius: 30px;
+      border: 1px solid #ddd;
+      outline: none;
+      width: 220px;
+    }
+
+    .header-btn {
+      background: {{ section.settings.button_bg }};
+      color: {{ section.settings.button_text_color }};
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .header-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .header-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .header-right {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .header-search input {
+        width: 100%;
+      }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Select Menu"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show Search Bar",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Sign In"
+    },
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Header Background",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Menu Text Color",
+      "default": "#111111"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Hover Color",
+      "default": "#ff6b35"
+    },
+
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#ff6b35"
+    },
+
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Custom Header"
+    }
+  ]
+}
+{% endschema %}

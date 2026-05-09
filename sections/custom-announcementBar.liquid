@@ -1,0 +1,60 @@
+{% if section.settings.show_announcement %}
+
+<div class="announcement-bar">
+  <p>{{ section.settings.announcement_text }}</p>
+</div>
+
+<style>
+  .announcement-bar {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .announcement-bar p {
+    margin: 0;
+  }
+</style>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "🚚 Free shipping on orders above ₹999 — Use Code SAVE10"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#111827"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement-Bar-Custom"
+    }
+  ]
+}
+{% endschema %}

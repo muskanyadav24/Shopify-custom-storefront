@@ -1,0 +1,579 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_slider_ittfVi": {
+      "type": "custom-hero-slider",
+      "blocks": {
+        "slide_cNGE3f": {
+          "type": "slide",
+          "settings": {
+            "badge": "New Season 2025",
+            "heading": "Step Into Style",
+            "text": "Discover the latest collection of premium sneakers and footwear — crafted for comfort, built for style.",
+            "image": "shopify://shop_images/hero-img-wrap.png",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "slide_VAjYtw": {
+          "type": "slide",
+          "settings": {
+            "badge": "New Season 2025",
+            "heading": "Step Into Style",
+            "text": "Discover the latest collection of premium sneakers and footwear — crafted for comfort, built for style.",
+            "image": "shopify://shop_images/hero-img-wrap.png",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "slide_zwzXgq": {
+          "type": "slide",
+          "settings": {
+            "badge": "New Season 2025",
+            "heading": "Step Into Style",
+            "text": "Discover the latest collection of premium sneakers and footwear — crafted for comfort, built for style.",
+            "image": "shopify://shop_images/hero-img-wrap.png",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_cNGE3f",
+        "slide_VAjYtw",
+        "slide_zwzXgq"
+      ],
+      "name": "Hero Slider",
+      "settings": {}
+    },
+    "hero_jVaWmY": {
+      "type": "hero",
+      "blocks": {
+        "text_YLPk4p": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p>Browse our latest products</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_H9gpTf": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Shop all",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_YLPk4p",
+        "button_H9gpTf"
+      ],
+      "disabled": true,
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#12121266",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 100,
+        "padding-block-end": 72
+      }
+    },
+    "category_collection_custom_KGHehE": {
+      "type": "custom-category-collection",
+      "blocks": {
+        "category_4CywGg": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/Footwear2.png",
+            "category_title": "Footwear",
+            "category_link": ""
+          }
+        },
+        "category_9mz7gf": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/Electronics2.png",
+            "category_title": "Electronics",
+            "category_link": ""
+          }
+        },
+        "category_MirGdm": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/6c1253a09789becbb77388c1e842c713.png",
+            "category_title": "Watches",
+            "category_link": ""
+          }
+        },
+        "category_fWWfNw": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/19d0db7def24e54f2a04124fcc1a906e.png",
+            "category_title": "Bags",
+            "category_link": ""
+          }
+        },
+        "category_RXiJCD": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/76c09d9051bd7c7493a63ef776b04ee9.png",
+            "category_title": "Audio",
+            "category_link": ""
+          }
+        },
+        "category_LyEf8d": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/1e6b2eb7b6c713c53a974463d390a9d8.png",
+            "category_title": "Eyewear",
+            "category_link": ""
+          }
+        },
+        "category_3gTFFn": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/abaa88e1c5878fd5259f73f9e4786555.png",
+            "category_title": "Clothing",
+            "category_link": ""
+          }
+        },
+        "category_GXyLTR": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/4611eeffe11168c6097b112efc0f836c.png",
+            "category_title": "Jewellery",
+            "category_link": ""
+          }
+        },
+        "category_6zn8ha": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/13222716dec443e77d7363a3950c16ac.png",
+            "category_title": "Sports",
+            "category_link": ""
+          }
+        },
+        "category_PkraVT": {
+          "type": "category",
+          "settings": {
+            "category_icon": "shopify://shop_images/f1a1cbe14019b415e1fbb3413937d498.png",
+            "category_title": "Home",
+            "category_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_4CywGg",
+        "category_9mz7gf",
+        "category_MirGdm",
+        "category_fWWfNw",
+        "category_RXiJCD",
+        "category_LyEf8d",
+        "category_3gTFFn",
+        "category_GXyLTR",
+        "category_6zn8ha",
+        "category_PkraVT"
+      ],
+      "name": "Category Collection",
+      "settings": {
+        "section_bg": "#f8f8f8",
+        "icon_bg": "#f5f5f5",
+        "hover_bg": "#ffe8df",
+        "text_color": "#111111",
+        "box_size": 100,
+        "icon_size": 75,
+        "border_radius": 28,
+        "item_gap": 25,
+        "text_size": 13,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "custom_collection_grid_AcbwLq": {
+      "type": "custom-collection-grid",
+      "blocks": {
+        "collection_item_bUDGVT": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "nike-air-zoom",
+            "custom_image": "shopify://shop_images/p1.png",
+            "sub_title": "Footwear",
+            "title": "AirRun Pro X Sneaker",
+            "price_text": "₹2,999"
+          }
+        },
+        "collection_item_NjVzj7": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "smart-watch-x",
+            "custom_image": "shopify://shop_images/p2.png",
+            "sub_title": "Watches",
+            "title": "Titan Edge Chrono Watch",
+            "price_text": "₹8,499"
+          }
+        },
+        "collection_item_Q3TbwH": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "luxe-mini-bag",
+            "custom_image": "shopify://shop_images/P3.png",
+            "sub_title": "Bags",
+            "title": "Luxe Leather Tote Bag",
+            "price_text": "₹3,499"
+          }
+        },
+        "collection_item_jkPeh7": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "beatpods-pro",
+            "custom_image": "shopify://shop_images/p4.png",
+            "sub_title": "Audio",
+            "title": "BassMax Pro Headphones",
+            "price_text": "₹5,999"
+          }
+        },
+        "collection_item_itXQcw": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "eco-sunglasses",
+            "custom_image": "shopify://shop_images/p5.png",
+            "sub_title": "Eyewear",
+            "title": "RayLux Classic Sunglasses",
+            "price_text": "₹18,99"
+          }
+        },
+        "collection_item_MJL3Bg": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/p6.png",
+            "sub_title": "Clothing",
+            "title": "UrbanFit Bomber Jacket",
+            "price_text": "₹4,299"
+          }
+        },
+        "collection_item_jLFUt9": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/p7.png",
+            "sub_title": "Electronics",
+            "title": "ProBook Air 14\" Laptop",
+            "price_text": "₹54,999"
+          }
+        },
+        "collection_item_fLX7xD": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/p8.png",
+            "sub_title": "Electronics",
+            "title": "ZenPhone 15 Ultra",
+            "price_text": "₹39,999"
+          }
+        },
+        "collection_item_PGhXtz": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "nike-air-zoom",
+            "custom_image": "shopify://shop_images/p9.png",
+            "sub_title": "Footwear",
+            "title": "GreenStep Eco Runners",
+            "price_text": "₹3,799"
+          }
+        },
+        "category_QBNFtb": {
+          "type": "category",
+          "settings": {
+            "cat_name": "Footwear",
+            "cat_count": "48"
+          }
+        },
+        "category_CE33AM": {
+          "type": "category",
+          "settings": {
+            "cat_name": "Electronics",
+            "cat_count": "48"
+          }
+        },
+        "category_TzjaKN": {
+          "type": "category",
+          "settings": {
+            "cat_name": "Clothing",
+            "cat_count": "48"
+          }
+        },
+        "category_ajCxwP": {
+          "type": "category",
+          "settings": {
+            "cat_name": "Accessories",
+            "cat_count": "63"
+          }
+        },
+        "category_ggEHFh": {
+          "type": "category",
+          "settings": {
+            "cat_name": "Sports",
+            "cat_count": "34"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_bUDGVT",
+        "collection_item_NjVzj7",
+        "collection_item_Q3TbwH",
+        "collection_item_jkPeh7",
+        "collection_item_itXQcw",
+        "collection_item_MJL3Bg",
+        "collection_item_jLFUt9",
+        "collection_item_fLX7xD",
+        "collection_item_PGhXtz",
+        "category_QBNFtb",
+        "category_CE33AM",
+        "category_TzjaKN",
+        "category_ajCxwP",
+        "category_ggEHFh"
+      ],
+      "name": "Full Product Page",
+      "settings": {}
+    },
+    "features_bar_custom_AFnAEF": {
+      "type": "custom-service-features-bar",
+      "blocks": {
+        "feature_VJCThh": {
+          "type": "feature",
+          "settings": {
+            "feature_icon": "shopify://shop_images/aa1130bad5b0c5380f492b253cad63be.png",
+            "feature_title": "Free Delivery",
+            "feature_text": "Free shipping on all orders above ₹999. Pan-India delivery in 2–5 business days."
+          }
+        },
+        "feature_rGdCic": {
+          "type": "feature",
+          "settings": {
+            "feature_icon": "shopify://shop_images/328d10c0b257271d673fe299028d03be.png",
+            "feature_title": "Easy Returns",
+            "feature_text": "30-day hassle-free returns on all products. No questions asked policy."
+          }
+        },
+        "feature_CjBmnb": {
+          "type": "feature",
+          "settings": {
+            "feature_icon": "shopify://shop_images/de050641e61e66bd29544bace349ffa3.png",
+            "feature_title": "Secure Payment",
+            "feature_text": "256-bit SSL encryption. Pay with UPI, cards, wallets or EMI."
+          }
+        },
+        "feature_ypDbpr": {
+          "type": "feature",
+          "settings": {
+            "feature_icon": "shopify://shop_images/d1aec9441928106936a1d33aa3e137c6.png",
+            "feature_title": "100% Authentic",
+            "feature_text": "All products are certified genuine. Direct from brand partners."
+          }
+        }
+      },
+      "block_order": [
+        "feature_VJCThh",
+        "feature_rGdCic",
+        "feature_CjBmnb",
+        "feature_ypDbpr"
+      ],
+      "name": "Features Bar",
+      "settings": {
+        "section_bg": "#14152f",
+        "icon_bg": "#232542",
+        "heading_color": "#ffffff",
+        "text_color": "#a9abc4",
+        "icon_box_size": 48,
+        "icon_size": 22,
+        "icon_radius": 12,
+        "heading_size": 18,
+        "text_size": 13,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "trending_products_custom_YYiNjU": {
+      "type": "custom-trending-products",
+      "blocks": {
+        "collection_tab_QJ6Htk": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_name": "",
+            "collection": "nike-air-zoom"
+          }
+        },
+        "collection_tab_WtxaVD": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_name": "",
+            "collection": "smart-watch-x"
+          }
+        },
+        "collection_tab_hxJQ7p": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_name": "",
+            "collection": "beatpods-pro"
+          }
+        },
+        "collection_tab_L4nF77": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_name": "",
+            "collection": "luxe-mini-bag"
+          }
+        },
+        "collection_tab_Jm7BtD": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_name": "",
+            "collection": "eco-sunglasses"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_QJ6Htk",
+        "collection_tab_WtxaVD",
+        "collection_tab_hxJQ7p",
+        "collection_tab_L4nF77",
+        "collection_tab_Jm7BtD"
+      ],
+      "name": "Trending Products Custom",
+      "settings": {
+        "title_prefix": "🔥 Trending",
+        "title_highlight": "Right Now",
+        "limit": 8
+      }
+    },
+    "custom_faq_section_eifVjm": {
+      "type": "custom-faq-section",
+      "blocks": {
+        "faq_MxRVFJ": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day hassle-free return policy on all products."
+          }
+        },
+        "faq_PHJRmF": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day hassle-free return policy on all products."
+          }
+        },
+        "faq_TQ9aHi": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day hassle-free return policy on all products."
+          }
+        },
+        "faq_4tMTCC": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day hassle-free return policy on all products."
+          }
+        }
+      },
+      "block_order": [
+        "faq_MxRVFJ",
+        "faq_PHJRmF",
+        "faq_TQ9aHi",
+        "faq_4tMTCC"
+      ],
+      "name": "Custom FAQ",
+      "settings": {
+        "support_heading": "Still Have Questions?",
+        "support_text": "Our support team is available 24/7 to help you with any queries.",
+        "button_text": "Contact Support",
+        "button_link": "",
+        "phone": "1800-SHOPZONE"
+      }
+    },
+    "custom_contact_section_cCU3ae": {
+      "type": "custom-contact-section",
+      "name": "Custom Contact",
+      "settings": {
+        "top_text": "We’d love to hear from you",
+        "heading_main": "Get In",
+        "heading_span": "Touch",
+        "address": "ShopZone HQ, 42 Commerce Street, Ahmedabad, Gujarat 380001",
+        "phone": "1800-SHOPZONE (toll-free)",
+        "email": "support@shopzone.in",
+        "button_text": "Send Message"
+      }
+    }
+  },
+  "order": [
+    "hero_slider_ittfVi",
+    "hero_jVaWmY",
+    "category_collection_custom_KGHehE",
+    "custom_collection_grid_AcbwLq",
+    "features_bar_custom_AFnAEF",
+    "trending_products_custom_YYiNjU",
+    "custom_faq_section_eifVjm",
+    "custom_contact_section_cCU3ae"
+  ]
+}

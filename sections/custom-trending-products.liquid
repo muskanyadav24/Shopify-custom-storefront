@@ -1,0 +1,127 @@
+<style>
+  .trending-wrapper { padding: 60px 0; font-family: 'Poppins', sans-serif; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 15px; }
+  .trending-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; flex-wrap: wrap; gap: 20px; }
+  .trending-title { font-size: 28px; font-weight: 700; margin: 0; }
+  .trending-title span { color: #ff4b2b; }
+
+  .trending-tabs { display: flex; gap: 12px; flex-wrap: wrap; }
+  .trending-tab { padding: 10px 18px; border-radius: 25px; border: 1px solid #eee; cursor: pointer; font-size: 14px; background: #f1f1f1; color: #666; border: none; transition: 0.3s; }
+  .trending-tab.active { background: #ff4b2b; color: #fff; }
+
+  .collection-grid-wrapper { display: none; }
+  .collection-grid-wrapper.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+
+  .product-card { transition: 0.3s ease; text-decoration: none; color: inherit; display: block; }
+  .product-card:hover { transform: translateY(-8px); }
+  .product-img { position: relative; border-radius: 15px; overflow: hidden; aspect-ratio: 1/1.1; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+  .product-img img { width: 75%; height: auto; object-fit: contain; }
+
+  .custom-badge { position: absolute; bottom: 15px; left: 15px; font-size: 10px; padding: 4px 12px; border-radius: 20px; font-weight: bold; text-transform: uppercase; color: #fff; }
+  .badge-hot { background: #ff4b2b; }
+  .badge-new { background: #4a90ff; }
+
+  .product-info { text-align: left; padding-left: 5px; }
+  .product-info h4 { margin: 0 0 5px 0; font-size: 15px; font-weight: 600; }
+  .price { color: #ff4b2b; font-weight: 700; font-size: 16px; }
+  .old-price { text-decoration: line-through; color: #bbb; font-size: 13px; margin-left: 8px; }
+
+  @media (max-width: 768px) { .collection-grid-wrapper.active { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+</style>
+
+<section class="trending-wrapper">
+  <div class="container">
+    <div class="trending-header">
+      <h2 class="trending-title">
+        {{ section.settings.title_prefix }}
+        <span>{{ section.settings.title_highlight }}</span>
+      </h2>
+
+      <div class="trending-tabs">
+        <button class="trending-tab active" onclick="switchTab(event, 'tab-all')">All</button>
+
+        {% for block in section.blocks %}
+          <button class="trending-tab" onclick="switchTab(event, 'tab-{{ block.id }}')">
+            {{ block.settings.tab_name | default: block.settings.collection.title }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="trending-grids-container">
+      {% assign bg_colors = '#FFF0EE,#EEF5FF,#F9F0FF,#FFF9EE,#F0FFF5' | split: ',' %}
+
+      <div id="tab-all" class="collection-grid-wrapper active">
+        {% for block in section.blocks %}
+          {% for product in block.settings.collection.products limit: 2 %}
+            {% assign color_index = forloop.index0 | modulo: 5 %}
+            <div class="product-card">
+              <a href="{{ product.url }}">
+                <div class="product-img" style="background-color: {{ bg_colors[color_index] }};">
+                  <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }}">
+                </div>
+                <div class="product-info">
+                  <h4>{{ product.title }}</h4>
+                  <span class="price">{{ product.price | money }}</span>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+      {% for block in section.blocks %}
+        <div id="tab-{{ block.id }}" class="collection-grid-wrapper">
+          {% for product in block.settings.collection.products limit: section.settings.limit %}
+            {% assign color_index = forloop.index0 | modulo: 5 %}
+            <div class="product-card">
+              <a href="{{ product.url }}">
+                <div class="product-img" style="background-color: {{ bg_colors[color_index] }};">
+                  <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }}">
+                  {% if product.compare_at_price > product.price -%}
+                    <span class="custom-badge badge-hot">HOT</span>
+                  {%- endif %}
+                </div>
+                <div class="product-info">
+                  <h4>{{ product.title }}</h4>
+                  <span class="price">{{ product.price | money }}</span>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  function switchTab(event, tabId) {
+    document.querySelectorAll('.collection-grid-wrapper').forEach((grid) => grid.classList.remove('active'));
+    document.querySelectorAll('.trending-tab').forEach((tab) => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Trending Tabs Final",
+  "settings": [
+    { "type": "text", "id": "title_prefix", "label": "Prefix", "default": "🔥 Trending" },
+    { "type": "text", "id": "title_highlight", "label": "Highlight", "default": "Right Now" },
+    { "type": "range", "id": "limit", "min": 4, "max": 12, "step": 1, "label": "Limit", "default": 8 }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        { "type": "text", "id": "tab_name", "label": "Name" },
+        { "type": "collection", "id": "collection", "label": "Select Collection" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Trending Tabs Final" }]
+}
+{% endschema %}
