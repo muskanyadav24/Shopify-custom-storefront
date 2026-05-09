@@ -1,12 +1,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css">
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 
 <style>
+
   :root {
     --primary-color: #ff5c35;
     --bg-color: #f9f1ee;
+  }
+
+  *{
+    box-sizing:border-box;
   }
 
   .hero-slider-wrapper {
@@ -18,9 +24,10 @@
   }
 
   .slider-container {
-    width: 1320px;
+    max-width: 1320px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 20px;
     position: relative;
   }
 
@@ -28,21 +35,19 @@
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    outline: none;
-    gap: 40px;
+    gap: 60px;
   }
 
-  /* Content Styling */
+  /* CONTENT */
   .content {
     flex: 1;
-    max-width: 550px;
-    text-align: left;
+    max-width: 600px;
   }
 
   .badge-top {
     background: var(--primary-color);
     color: #fff;
-    padding: 6px 16px;
+    padding: 7px 18px;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 600;
@@ -51,11 +56,11 @@
   }
 
   .content h1 {
-    font-size: 56px;
+    font-size: 58px;
     font-weight: 800;
     line-height: 1.1;
     color: #1a1a1a;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
   }
 
   .content h1 span {
@@ -65,86 +70,130 @@
   .content p {
     font-size: 18px;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.6;
     margin-bottom: 35px;
   }
 
-  /* Buttons */
+  /* BUTTONS */
   .button-group {
     display: flex;
+    align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .btn-primary {
     background: var(--primary-color);
     color: #fff;
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
     border: none;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
   }
 
   .btn-secondary {
     border: 2px solid #1a1a1a;
     color: #1a1a1a;
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
+    background: transparent;
   }
 
-  /* Image Section */
+  .btn-secondary:hover {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  /* IMAGE */
   .image-wrapper {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    position: relative;
+  }
+
+  .main-img-card {
     position: relative;
   }
 
   .main-img-card img {
-    max-width: 380px;
+    max-width: 500px;
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 20px;
+    border-radius: 24px;
   }
 
-  /* Floating Badges */
+  /* FLOAT BADGES */
   .float-badge {
     position: absolute;
     background: #fff;
-    padding: 8px 15px;
-    border-radius: 12px;
+    padding: 10px 18px;
+    border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
     z-index: 5;
   }
-  .rating-badge { top: 65px; right: 10px; }
-  .offer-badge { bottom: 90px; left: 160px; }
 
-  /* Navigation Arrows */
-  .slick-prev, .slick-next {
-    width: 50px;
-    height: 50px;
+  .rating-badge {
+    top: 75px;
+    right: -20px;
+  }
+
+  .offer-badge {
+    bottom: 105px;
+    left: -20px;
+  }
+
+  /* ARROWS */
+  .slick-prev,
+  .slick-next {
+    width: 48px;
+    height: 48px;
     background: #fff !important;
     border-radius: 50%;
     z-index: 10;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   }
-  .slick-prev { left: -75px; }
-  .slick-next { right: -75px; }
-  .slick-prev:before, .slick-next:before {
+
+  .slick-prev {
+    left: -80px;
+  }
+
+  .slick-next {
+    right: -80px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
     opacity: 1;
   }
 
-  /* Pagination Dots */
-  .slick-dots { bottom: -60px; }
-  .slick-dots li button:before { display: none; }
+  /* DOTS */
+  .slick-dots {
+    bottom: -50px;
+  }
+
+  .slick-dots li button:before {
+    display: none;
+  }
+
   .slick-dots li button {
     width: 10px;
     height: 10px;
@@ -152,65 +201,241 @@
     border-radius: 50%;
     padding: 0;
   }
+
   .slick-dots li.slick-active button {
-    background: var(--primary-color);
-    width: 25px;
+    width: 26px;
     border-radius: 10px;
+    background: var(--primary-color);
   }
 
-  /* Responsive Fixes */
-  @media (max-width: 991px) {
-    .content h1 { font-size: 42px; }
-    .main-img-card img { max-width: 300px; }
+  /* LAPTOP */
+  @media screen and (max-width: 1200px) {
+
+    .content h1 {
+      font-size: 48px;
+    }
+
+    .main-img-card img {
+      max-width: 420px;
+    }
   }
 
-  @media (max-width: 768px) {
-    .slide { flex-direction: column; text-align: center; }
-    .content { text-align: center; max-width: 100%; }
-    .button-group { justify-content: center; }
-    .image-wrapper { justify-content: center; margin-top: 40px; }
-    .float-badge { font-size: 12px; }
-    .slick-prev { left: 0; }
-    .slick-next { right: 0; }
+  /* TABLET */
+  @media screen and (max-width: 991px) {
+
+    .hero-slider-wrapper {
+      padding: 70px 0;
+    }
+
+    .slide {
+      gap: 30px;
+    }
+
+    .content h1 {
+      font-size: 42px;
+    }
+
+    .content p {
+      font-size: 16px;
+    }
+
+    .main-img-card img {
+      max-width: 360px;
+    }
+
+    .float-badge {
+      font-size: 12px;
+      padding: 8px 14px;
+    }
   }
+
+  /* MOBILE */
+  @media screen and (max-width: 768px) {
+
+    .hero-slider-wrapper {
+      padding: 60px 0;
+    }
+
+    .slide {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 40px;
+    }
+
+    .content {
+      max-width: 100%;
+    }
+
+    .content h1 {
+      font-size: 34px;
+    }
+
+    .content p {
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .button-group {
+      justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 13px 25px;
+      font-size: 14px;
+    }
+
+    .image-wrapper {
+      width: 100%;
+    }
+
+    .main-img-card img {
+      max-width: 100%;
+    }
+
+    .rating-badge {
+      top: 15px;
+      right: 10px;
+    }
+
+    .offer-badge {
+      bottom: 15px;
+      left: 10px;
+    }
+
+    .slick-prev,
+    .slick-next {
+      width: 40px;
+      height: 40px;
+    }
+
+    .slick-prev {
+      left: 10px;
+    }
+
+    .slick-next {
+      right: 10px;
+    }
+  }
+
+  /* SMALL MOBILE */
+  @media screen and (max-width: 480px) {
+
+    .hero-slider-wrapper {
+      padding: 50px 0;
+    }
+
+    .slider-container {
+      padding: 0 15px;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .badge-top {
+      font-size: 11px;
+      padding: 6px 14px;
+    }
+
+    .content p {
+      font-size: 14px;
+    }
+
+    .button-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+
+    .float-badge {
+      font-size: 11px;
+      padding: 7px 12px;
+    }
+  }
+
 </style>
 
 <section class="hero-slider-wrapper">
   <div class="slider-container">
+
     <div id="hero-slider-{{ section.id }}">
+
       {% for block in section.blocks %}
+
       <div class="slide" {{ block.shopify_attributes }}>
+
+        <!-- CONTENT -->
         <div class="content">
-          <span class="badge-top">{{ block.settings.badge }}</span>
-          <h1>Step Into <span>Style</span><br/> This Season</h1>
-          <p>{{ block.settings.text }}</p>
+
+          <span class="badge-top">
+            {{ block.settings.badge }}
+          </span>
+
+          <h1>
+            {{ block.settings.heading }}
+            <span>Style</span>
+          </h1>
+
+          <p>
+            {{ block.settings.text }}
+          </p>
+
           <div class="button-group">
-            <a href="{{ block.settings.btn_link }}" class="btn-primary">{{ block.settings.btn_text }}</a>
-            <a href="#" class="btn-secondary">View Lookbook</a>
+
+            <a href="{{ block.settings.btn_link }}" class="btn-primary">
+              {{ block.settings.btn_text }}
+            </a>
+
+            <a href="#" class="btn-secondary">
+              View Lookbook
+            </a>
+
           </div>
         </div>
 
+        <!-- IMAGE -->
         <div class="image-wrapper">
+
           <div class="main-img-card">
-            <div class="float-badge rating-badge">⭐ 4.9 Rating</div>
-            <div class="float-badge offer-badge">🔥 50% OFF Today!</div>
+
+            <div class="float-badge rating-badge">
+              ⭐ 4.9 Rating
+            </div>
+
+            <div class="float-badge offer-badge">
+              🔥 50% OFF Today!
+            </div>
+
             {% if block.settings.image %}
-              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="Slider Image">
+              <img src="{{ block.settings.image | image_url: width: 900 }}" alt="Slider Image" loading="lazy" >
             {% else %}
               {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
+
           </div>
         </div>
+
       </div>
+
       {% endfor %}
+
     </div>
   </div>
 </section>
 
 <script>
   $(document).ready(function(){
+
     var $slider = $('#hero-slider-{{ section.id }}');
-    if($slider.length) {
+
+    if($slider.length){
+
       $slider.slick({
         dots: true,
         arrows: true,
@@ -221,9 +446,20 @@
         slidesToShow: 1,
         slidesToScroll: 1,
         rows: 0,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false
+            }
+          }
+        ]
       });
+
     }
+
   });
 </script>
 
@@ -236,19 +472,52 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
-        { "type": "text", "id": "badge", "label": "Badge", "default": "New Season 2025" },
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Step Into Style" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Discover the latest collection of premium sneakers." },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "btn_text", "label": "Button Text", "default": "Shop Now" },
-        { "type": "url", "id": "btn_link", "label": "Button Link" }
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "New Season 2025"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Step Into"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Discover the latest collection of premium sneakers."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
       ]
     }
   ],
+
   "presets": [
     {
       "name": "Hero Slider Final",
-      "blocks": [ { "type": "slide" } ]
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
     }
   ]
 }

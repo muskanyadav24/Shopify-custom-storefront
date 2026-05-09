@@ -1,37 +1,65 @@
 <style>
+
+  *{
+    box-sizing:border-box;
+  }
+
   .custom-footer {
     background-color: #1a1a1a;
     color: #ffffff;
     padding: 80px 0 40px;
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
   }
+
   .container {
     max-width: 1320px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
   }
+
+  /* GRID */
   .footer-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
     gap: 40px;
     margin-bottom: 60px;
   }
+
+  .footer-col {
+    min-width: 0;
+  }
+
+  /* LOGO */
   .footer-logo h2 {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     margin: 0 0 20px;
+    line-height: 1.2;
   }
-  .footer-logo h2 span { color: #ff5c35; }
+
+  .footer-logo h2 span {
+    color: #ff5c35;
+  }
+
   .footer-logo p {
     color: #a0a0a0;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 25px;
   }
-  .social-icons { display: flex; gap: 12px; }
+
+  /* SOCIAL */
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
   .social-icon {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
     background: #333;
     border-radius: 50%;
     display: flex;
@@ -40,64 +68,135 @@
     font-size: 14px;
     color: #fff;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    flex-shrink: 0;
   }
-  .social-icon:hover { background: #ff5c35; }
-  
+
+  .social-icon:hover {
+    background: #ff5c35;
+    transform: translateY(-3px);
+  }
+
+  /* HEADINGS */
   .footer-heading {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 25px;
     color: #fff;
+    line-height: 1.3;
   }
-  .footer-links { list-style: none; padding: 0; margin: 0; }
-  .footer-links li { margin-bottom: 12px; }
+
+  /* LINKS */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 14px;
+  }
+
   .footer-links a {
     color: #a0a0a0;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    display: inline-block;
+    line-height: 1.5;
   }
-  .footer-links a:hover { color: #ff5c35; padding-left: 5px; }
 
-  /* Newsletter */
-  .newsletter-text { color: #a0a0a0; font-size: 14px; margin-bottom: 20px; }
-  .newsletter-form { display: flex; gap: 10px; margin-bottom: 15px; }
+  .footer-links a:hover {
+    color: #ff5c35;
+    padding-left: 5px;
+  }
+
+  /* NEWSLETTER */
+  .newsletter-text {
+    color: #a0a0a0;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
   .newsletter-input {
     flex: 1;
+    min-width: 0;
     background: #333;
     border: 1px solid #444;
-    padding: 12px 15px;
+    padding: 13px 15px;
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
+    outline: none;
+    width: 100%;
   }
+
+  .newsletter-input::placeholder {
+    color: #888;
+  }
+
   .newsletter-btn {
     background: #ff5c35;
     color: #fff;
     border: none;
-    padding: 0 25px;
+    padding: 0 22px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.3s ease;
+    white-space: nowrap;
   }
-  .newsletter-note { font-size: 11px; color: #666; display: flex; align-items: center; gap: 5px; }
 
-  /* Bottom Bar */
+  .newsletter-btn:hover {
+    opacity: 0.9;
+  }
+
+  .newsletter-note {
+    font-size: 12px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.5;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER BOTTOM */
   .footer-bottom {
     border-top: 1px solid #333;
     padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
   }
-  .copyright { color: #666; font-size: 13px; }
-  .payment-methods { display: flex; gap: 8px; }
+
+  .copyright {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* PAYMENT */
+  .payment-methods {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .payment-badge {
     background: #333;
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 4px;
     font-size: 11px;
     font-weight: 600;
@@ -105,92 +204,322 @@
     text-transform: uppercase;
   }
 
-  @media (max-width: 991px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+  /* LARGE TABLET */
+  @media screen and (max-width: 1100px) {
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 30px;
+    }
+
   }
-  @media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+
+  /* TABLET */
+  @media screen and (max-width: 768px) {
+
+    .custom-footer {
+      padding: 70px 0 35px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      text-align: center;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+      padding: 14px 20px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .newsletter-note {
+      justify-content: center;
+    }
+
   }
+
+  /* MOBILE */
+  @media screen and (max-width: 480px) {
+
+    .custom-footer {
+      padding: 60px 0 30px;
+    }
+
+    .container {
+      padding: 0 15px;
+    }
+
+    .footer-logo h2 {
+      font-size: 26px;
+    }
+
+    .footer-heading {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo p,
+    .newsletter-text,
+    .footer-links a {
+      font-size: 13px;
+    }
+
+    .newsletter-input {
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .newsletter-btn {
+      font-size: 13px;
+    }
+
+    .payment-methods {
+      gap: 6px;
+    }
+
+    .payment-badge {
+      font-size: 10px;
+      padding: 5px 10px;
+    }
+
+    .copyright {
+      font-size: 12px;
+    }
+
+  }
+
 </style>
 
 <footer class="custom-footer">
+
   <div class="container">
+
     <div class="footer-grid">
-      
+
+      <!-- COLUMN 1 -->
       <div class="footer-col">
+
         <div class="footer-logo">
-          <h2>{{ section.settings.logo_text_1 }}<span>{{ section.settings.logo_text_2 }}</span></h2>
-          <p>{{ section.settings.about_text }}</p>
+
+          <h2>
+            {{ section.settings.logo_text_1 }}
+            <span>{{ section.settings.logo_text_2 }}</span>
+          </h2>
+
+          <p>
+            {{ section.settings.about_text }}
+          </p>
+
           <div class="social-icons">
+
             <a href="#" class="social-icon">f</a>
+
             <a href="#" class="social-icon">𝕏</a>
+
             <a href="#" class="social-icon">in</a>
+
             <a href="#" class="social-icon">📷</a>
+
           </div>
+
         </div>
+
       </div>
 
+      <!-- COLUMN 2 -->
       <div class="footer-col">
-        <h4 class="footer-heading">{{ section.settings.menu_1_title }}</h4>
+
+        <h4 class="footer-heading">
+          {{ section.settings.menu_1_title }}
+        </h4>
+
         <ul class="footer-links">
+
           {% for link in section.settings.menu_1.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+
           {% endfor %}
+
         </ul>
+
       </div>
 
+      <!-- COLUMN 3 -->
       <div class="footer-col">
-        <h4 class="footer-heading">{{ section.settings.menu_2_title }}</h4>
+
+        <h4 class="footer-heading">
+          {{ section.settings.menu_2_title }}
+        </h4>
+
         <ul class="footer-links">
+
           {% for link in section.settings.menu_2.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+
           {% endfor %}
+
         </ul>
+
       </div>
 
+      <!-- COLUMN 4 -->
       <div class="footer-col">
-        <h4 class="footer-heading">Newsletter</h4>
-        <p class="newsletter-text">{{ section.settings.newsletter_text }}</p>
+
+        <h4 class="footer-heading">
+          Newsletter
+        </h4>
+
+        <p class="newsletter-text">
+          {{ section.settings.newsletter_text }}
+        </p>
+
         {% form 'customer', class: 'newsletter-form' %}
-          <input type="email" name="contact[email]" class="newsletter-input" placeholder="Your email address" required>
-          <button type="submit" class="newsletter-btn">Subscribe</button>
+
+          <input
+            type="email"
+            name="contact[email]"
+            class="newsletter-input"
+            placeholder="Your email address"
+            required
+          >
+
+          <button type="submit" class="newsletter-btn">
+            Subscribe
+          </button>
+
         {% endform %}
-        <div class="newsletter-note">🔒 {{ section.settings.newsletter_note }}</div>
+
+        <div class="newsletter-note">
+          🔒 {{ section.settings.newsletter_note }}
+        </div>
+
       </div>
 
     </div>
 
+    <!-- FOOTER BOTTOM -->
     <div class="footer-bottom">
+
       <div class="copyright">
-        &copy; {{ 'now' | date: "%Y" }} {{ section.settings.copyright_text }}
+        &copy; {{ 'now' | date: "%Y" }}
+        {{ section.settings.copyright_text }}
       </div>
+
       <div class="payment-methods">
+
         <span class="payment-badge">UPI</span>
+
         <span class="payment-badge">VISA</span>
+
         <span class="payment-badge">MC</span>
+
         <span class="payment-badge">AMEX</span>
+
         <span class="payment-badge">RUPAY</span>
+
       </div>
+
     </div>
+
   </div>
+
 </footer>
 
 {% schema %}
 {
   "name": "Custom Dark Footer",
   "settings": [
-    { "type": "text", "id": "logo_text_1", "label": "Logo Part 1", "default": "Shop" },
-    { "type": "text", "id": "logo_text_2", "label": "Logo Part 2", "default": "Zone" },
-    { "type": "textarea", "id": "about_text", "label": "About Text", "default": "Your one-stop destination for premium fashion, electronics, and lifestyle products. Quality you can trust." },
-    { "type": "text", "id": "menu_1_title", "label": "Menu 1 Title", "default": "Quick Links" },
-    { "type": "link_list", "id": "menu_1", "label": "Select Menu 1" },
-    { "type": "text", "id": "menu_2_title", "label": "Menu 2 Title", "default": "Customer Care" },
-    { "type": "link_list", "id": "menu_2", "label": "Select Menu 2" },
-    { "type": "textarea", "id": "newsletter_text", "label": "Newsletter Text", "default": "Get exclusive deals and latest trends delivered to your inbox." },
-    { "type": "text", "id": "newsletter_note", "label": "Newsletter Note", "default": "No spam. Unsubscribe anytime." },
-    { "type": "text", "id": "copyright_text", "label": "Copyright Text", "default": "ShopZone. All rights reserved. Made with ❤️ in India." }
+    {
+      "type": "text",
+      "id": "logo_text_1",
+      "label": "Logo Part 1",
+      "default": "Shop"
+    },
+    {
+      "type": "text",
+      "id": "logo_text_2",
+      "label": "Logo Part 2",
+      "default": "Zone"
+    },
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "About Text",
+      "default": "Your one-stop destination for premium fashion, electronics, and lifestyle products. Quality you can trust."
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Select Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Customer Care"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Select Menu 2"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Newsletter Text",
+      "default": "Get exclusive deals and latest trends delivered to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_note",
+      "label": "Newsletter Note",
+      "default": "No spam. Unsubscribe anytime."
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "ShopZone. All rights reserved. Made with ❤️ in India."
+    }
   ],
-  "presets": [{ "name": "Custom Dark Footer" }]
+
+  "presets": [
+    {
+      "name": "Custom Dark Footer"
+    }
+  ]
 }
 {% endschema %}

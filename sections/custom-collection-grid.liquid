@@ -1,242 +1,742 @@
 <style>
 
-    .bg-section{
-        background: #f8f8f8;
-        padding: 90px 0px;
+  *{
+    box-sizing:border-box;
+  }
+
+  .bg-section{
+    background:#f8f8f8;
+    padding:90px 0;
+    overflow:hidden;
+  }
+
+  .sz-all-products-wrapper{
+    display:flex;
+    gap:40px;
+    max-width:1400px;
+    width:100%;
+    margin:0 auto;
+    padding:0 20px;
+    font-family:'Poppins',sans-serif;
+  }
+
+  /* =========================
+     LEFT SIDEBAR
+  ========================= */
+
+  .sz-sidebar{
+    width:100%;
+    max-width:300px;
+    flex-shrink:0;
+  }
+
+  .sz-filter-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.03);
+    border:1px solid #f0f0f0;
+  }
+
+  .sz-filter-title{
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#1a1c2b;
+    border-bottom:1px solid #f5f5f5;
+    padding-bottom:15px;
+  }
+
+  /* CATEGORY */
+
+  .sz-cat-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#666;
+  }
+
+  .sz-cat-item span:first-child::before{
+    content:'on ';
+    font-size:11px;
+    color:#ccc;
+  }
+
+  .sz-count-badge{
+    background:#f0f0f0;
+    color:#999;
+    padding:2px 10px;
+    border-radius:12px;
+    font-size:11px;
+    white-space:nowrap;
+  }
+
+  /* PRICE */
+
+  .sz-price-label{
+    font-size:13px;
+    color:#333;
+    margin-bottom:8px;
+    font-weight:500;
+    display:block;
+  }
+
+  .sz-price-inputs{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+
+  .sz-price-field{
+    width:100%;
+    border:1px solid #eee;
+    padding:12px;
+    border-radius:10px;
+    font-size:13px;
+    color:#333;
+    outline:none;
+  }
+
+  /* COLORS */
+
+  .sz-color-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .sz-color-dot{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:1px solid #eee;
+    cursor:pointer;
+    transition:0.2s;
+    flex-shrink:0;
+  }
+
+  .sz-color-dot:hover{
+    transform:scale(1.1);
+    border-color:#ff5c35;
+  }
+
+  /* RATING */
+
+  .sz-rating-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+    font-size:13px;
+    color:#666;
+    flex-wrap:wrap;
+  }
+
+  .sz-stars{
+    color:#ffb800;
+    font-size:15px;
+    letter-spacing:2px;
+  }
+
+  /* =========================
+     TOOLBAR
+  ========================= */
+
+  .sz-toolbar{
+    background:#fff;
+    border-radius:15px;
+    padding:15px 25px;
+    margin-bottom:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.02);
+    border:1px solid #f0f0f0;
+  }
+
+  .sz-results-text{
+    font-size:14px;
+    color:#666;
+    font-weight:500;
+  }
+
+  .sz-results-text span{
+    color:#1a1c2b;
+    font-weight:700;
+  }
+
+  .sz-toolbar-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+  }
+
+  .sz-sort-box{
+    border:1px solid #eee;
+    padding:8px 15px;
+    border-radius:10px;
+    font-size:13px;
+    color:#666;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+  }
+
+  .sz-view-options{
+    display:flex;
+    gap:8px;
+  }
+
+  .sz-view-btn{
+    width:35px;
+    height:35px;
+    border-radius:8px;
+    border:1px solid #eee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    background:#fff;
+    flex-shrink:0;
+  }
+
+  .sz-view-btn.active{
+    border-color:#ff5c35;
+    background:#fff;
+  }
+
+  .sz-view-btn svg{
+    width:18px;
+    fill:#666;
+  }
+
+  .sz-view-btn.active svg{
+    fill:#ff5c35;
+  }
+
+  /* =========================
+     PRODUCT CONTENT
+  ========================= */
+
+  .sz-product-content{
+    flex-grow:1;
+    min-width:0;
+  }
+
+  .sz-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+  }
+
+  /* CARD */
+
+  .sz-card{
+    text-decoration:none;
+    color:inherit;
+    transition:0.3s;
+    display:block;
+    width:100%;
+  }
+
+  .sz-img-container{
+    background:#f1efee;
+    border-radius:20px;
+    aspect-ratio:1/1.1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    margin-bottom:15px;
+  }
+
+  .sz-img-container img{
+    width:80%;
+    height:auto;
+    object-fit:contain;
+    transition:0.4s ease;
+  }
+
+  .sz-card:hover img{
+    transform:scale(1.08);
+  }
+
+  .sz-cart-btn{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    width:38px;
+    height:38px;
+    background:#ff5c35;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:20px;
+  }
+
+  .sz-info{
+    text-align:left;
+  }
+
+  .sz-prod-title{
+    font-size:15px;
+    font-weight:700;
+    margin:0 0 5px;
+    color:#1a1c2b;
+    line-height:1.5;
+  }
+
+  .sz-price-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .sz-current-price{
+    color:#ff5c35;
+    font-weight:700;
+    font-size:16px;
+  }
+
+  /* =========================
+     LARGE TABLET
+  ========================= */
+
+  @media (max-width:1200px){
+
+    .sz-all-products-wrapper{
+      gap:30px;
     }
 
-  .sz-all-products-wrapper {
-    display: flex;
-    gap: 40px;
-    max-width: 1400px;
-    margin: 60px auto;
-    padding: 0 20px;
-    font-family: 'Poppins', sans-serif;
+    .sz-grid{
+      gap:20px;
+    }
+
   }
 
-  /* LEFT SIDEBAR */
-  .sz-sidebar {
-    width: 100%;
-    max-width: 300px;
-    flex-shrink: 0;
-  }
-  .sz-filter-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    border: 1px solid #f0f0f0;
-  }
-  .sz-filter-title {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #1a1c2b;
-    border-bottom: 1px solid #f5f5f5;
-    padding-bottom: 15px;
-  }
+  /* =========================
+     TABLET
+  ========================= */
 
-  /* Categories List */
-  .sz-cat-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: #666; }
-  .sz-cat-item span:first-child::before { content: 'on '; font-size: 11px; color: #ccc; }
-  .sz-count-badge { background: #f0f0f0; color: #999; padding: 2px 10px; border-radius: 12px; font-size: 11px; }
+  @media (max-width:1024px){
 
-  /* Price Range Styles */
-  .sz-price-label { font-size: 13px; color: #333; margin-bottom: 8px; font-weight: 500; display: block; }
-  .sz-price-inputs { display: flex; gap: 10px; align-items: center; }
-  .sz-price-field { width: 100%; border: 1px solid #eee; padding: 12px; border-radius: 10px; font-size: 13px; color: #333; outline: none; }
+    .bg-section{
+      padding:70px 0;
+    }
 
-  /* Color Swatches Styles */
-  .sz-color-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-  .sz-color-dot { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #eee; cursor: pointer; transition: 0.2s; }
-  .sz-color-dot:hover { transform: scale(1.1); border-color: #ff5c35; }
+    .sz-all-products-wrapper{
+      flex-direction:column;
+      gap:30px;
+      padding:0 18px;
+    }
 
-  /* Ratings Styles */
-  .sz-rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: #666; }
-  .sz-stars { color: #ffb800; font-size: 15px; letter-spacing: 2px; }
+    .sz-sidebar{
+      max-width:100%;
+    }
 
-  /* TOP TOOLBAR STYLES */
-  .sz-toolbar {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px 25px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.02);
-    border: 1px solid #f0f0f0;
-  }
-  .sz-results-text { font-size: 14px; color: #666; font-weight: 500; }
-  .sz-results-text span { color: #1a1c2b; font-weight: 700; }
-  
-  .sz-toolbar-right { display: flex; align-items: center; gap: 15px; }
-  .sz-sort-box { border: 1px solid #eee; padding: 8px 15px; border-radius: 10px; font-size: 13px; color: #666; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-  .sz-view-options { display: flex; gap: 8px; }
-  .sz-view-btn { width: 35px; height: 35px; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #fff; }
-  .sz-view-btn.active { border-color: #ff5c35; background: #fff; }
-  .sz-view-btn svg { width: 18px; fill: #666; }
-  .sz-view-btn.active svg { fill: #ff5c35; }
+    .sz-grid{
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
 
-  /* RIGHT PRODUCT GRID SECTION */
-  .sz-product-content { flex-grow: 1; }
-  .sz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .sz-toolbar{
+      flex-wrap:wrap;
+      padding:15px 20px;
+    }
 
-  /* Product Card Styling */
-  .sz-card { text-decoration: none; color: inherit; transition: 0.3s; display: block; }
-  .sz-img-container {
-    background: #f1efee;
-    border-radius: 20px;
-    aspect-ratio: 1/1.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 15px;
-  }
-  .sz-img-container img { width: 80%; height: auto; object-fit: contain; transition: 0.4s ease; }
-  .sz-card:hover img { transform: scale(1.08); }
+    .sz-toolbar-right{
+      width:100%;
+      justify-content:space-between;
+    }
 
-  .sz-cart-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 38px;
-    height: 38px;
-    background: #ff5c35;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 20px;
   }
 
-  .sz-info { text-align: left; }
-  .sz-prod-title { font-size: 15px; font-weight: 700; margin: 0 0 5px; color: #1a1c2b; }
-  .sz-price-row { display: flex; align-items: center; gap: 10px; }
-  .sz-current-price { color: #ff5c35; font-weight: 700; font-size: 16px; }
+  /* =========================
+     MOBILE
+  ========================= */
 
-  @media (max-width: 1024px) {
-    .sz-grid { grid-template-columns: repeat(2, 1fr); }
-    .sz-sidebar { display: none; }
+  @media (max-width:768px){
+
+    .bg-section{
+      padding:60px 0;
+    }
+
+    .sz-all-products-wrapper{
+      padding:0 15px;
+      gap:25px;
+    }
+
+    .sz-sidebar h2{
+      font-size:28px !important;
+      text-align:center;
+    }
+
+    .sz-filter-card{
+      padding:20px;
+      border-radius:16px;
+    }
+
+    .sz-filter-title{
+      font-size:15px;
+      margin-bottom:16px;
+      padding-bottom:12px;
+    }
+
+    .sz-price-inputs{
+      flex-direction:column;
+    }
+
+    .sz-toolbar{
+      flex-direction:column;
+      align-items:flex-start;
+      padding:16px;
+      gap:15px;
+    }
+
+    .sz-toolbar-right{
+      width:100%;
+      justify-content:space-between;
+    }
+
+    .sz-grid{
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .sz-img-container{
+      border-radius:16px;
+    }
+
+    .sz-cart-btn{
+      width:34px;
+      height:34px;
+      font-size:18px;
+      bottom:12px;
+      right:12px;
+    }
+
+    .sz-prod-title{
+      font-size:14px;
+    }
+
+    .sz-current-price{
+      font-size:15px;
+    }
+
   }
+
+  /* =========================
+     SMALL MOBILE
+  ========================= */
+
+  @media (max-width:540px){
+
+    .bg-section{
+      padding:50px 0;
+    }
+
+    .sz-grid{
+      grid-template-columns:1fr;
+    }
+
+    .sz-toolbar{
+      align-items:stretch;
+    }
+
+    .sz-toolbar-right{
+      flex-direction:column;
+      align-items:stretch;
+    }
+
+    .sz-sort-box{
+      justify-content:center;
+    }
+
+    .sz-view-options{
+      justify-content:center;
+    }
+
+    .sz-filter-card{
+      padding:18px;
+    }
+
+    .sz-prod-title{
+      font-size:15px;
+    }
+
+  }
+
+  /* =========================
+     EXTRA SMALL
+  ========================= */
+
+  @media (max-width:380px){
+
+    .sz-all-products-wrapper{
+      padding:0 12px;
+    }
+
+    .sz-sidebar h2{
+      font-size:24px !important;
+    }
+
+    .sz-toolbar{
+      padding:14px;
+    }
+
+    .sz-sort-box{
+      font-size:12px;
+    }
+
+    .sz-results-text{
+      font-size:13px;
+    }
+
+    .sz-filter-card{
+      padding:15px;
+    }
+
+  }
+
 </style>
 
 <section class="bg-section">
-<div class="sz-all-products-wrapper">
-  <aside class="sz-sidebar">
-    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 25px;">All <span style="color:#ff5c35;">Products</span></h2>
-    
-    <div class="sz-filter-card">
-      <h3 class="sz-filter-title">Categories</h3>
-      <div class="sz-cat-list">
-        {% for block in section.blocks %}
-          {% if block.type == 'category' %}
-            <div class="sz-cat-item">
-              <span>on {{ block.settings.cat_name }}</span>
-              <span class="sz-count-badge">{{ block.settings.cat_count }}</span>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
 
-    <div class="sz-filter-card">
-      <h3 class="sz-filter-title">Price Range</h3>
-      <span class="sz-price-label">5000</span>
-      <div class="sz-price-inputs">
-        <input type="text" class="sz-price-field" placeholder="₹0">
-        <input type="text" class="sz-price-field" placeholder="₹5000">
-      </div>
-    </div>
+  <div class="sz-all-products-wrapper">
 
-    <div class="sz-filter-card">
-      <h3 class="sz-filter-title">Color</h3>
-      <div class="sz-color-grid">
-        {% assign colors = "#ff5c35,#1a1c2b,#4a86ff,#2ecc71,#e74c3c,#f39c12,#9b59b6,#ffffff" | split: ',' %}
-        {% for color in colors %}
-          <div class="sz-color-dot" style="background-color: {{ color }};"></div>
-        {% endfor %}
-      </div>
-    </div>
+    <!-- SIDEBAR -->
+    <aside class="sz-sidebar">
 
-    <div class="sz-filter-card">
-      <h3 class="sz-filter-title">Rating</h3>
-      <div class="sz-rating-row">
-        <span>on</span> <span class="sz-stars">★★★★★</span> <span>(5 star)</span>
-      </div>
-      <div class="sz-rating-row">
-        <span>on</span> <span class="sz-stars">★★★★☆</span> <span>(4+)</span>
-      </div>
-      <div class="sz-rating-row">
-        <span>on</span> <span class="sz-stars">★★★☆☆</span> <span>(3+)</span>
-      </div>
-    </div>
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:25px;">
+        All <span style="color:#ff5c35;">Products</span>
+      </h2>
 
-    <button style="width:100%; background:#ff5c35; color:#fff; border:none; padding:16px; border-radius:12px; font-weight:600; cursor:pointer; font-size:15px; transition: 0.3s;">
-      Apply Filters
-    </button>
-  </aside>
+      <!-- CATEGORY -->
+      <div class="sz-filter-card">
 
-  <main class="sz-product-content">
-    
-    <div class="sz-toolbar">
-      <div class="sz-results-text">
-        Showing <span>1–9</span> of <span>148</span> products
-      </div>
-      
-      <div class="sz-toolbar-right">
-        <div class="sz-sort-box">
-          Sort: <span>Featured</span> ▾
-        </div>
-        
-        <div class="sz-view-options">
-          <div class="sz-view-btn active">
-             <svg viewBox="0 0 24 24"><path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/></svg>
-          </div>
-          <div class="sz-view-btn" style="background:#f6f6f6; border:none;">
-             <svg viewBox="0 0 24 24"><path d="M4 11h16V5H4v6zm0 7h16v-6H4v6z"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
+        <h3 class="sz-filter-title">
+          Categories
+        </h3>
 
-    <div class="sz-grid">
-      {% for block in section.blocks %}
-        {% if block.type == 'collection_item' %}
-          <div class="sz-card" {{ block.shopify_attributes }}>
-            {%- assign collection = block.settings.collection -%}
-            <a href="{{ collection.url | default: '#' }}" style="text-decoration:none; color:inherit;">
-              <div class="sz-img-container">
-                {% if block.settings.custom_image != blank %}
-                  <img src="{{ block.settings.custom_image | img_url: '600x' }}" alt="{{ block.settings.title }}">
-                {% elsif collection.image != blank %}
-                  <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.title }}">
-                {% else %}
-                  {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
-                <div class="sz-cart-btn">+</div>
-              </div>
+        <div class="sz-cat-list">
 
-              <div class="sz-info">
-                <span style="font-size: 12px; color: #ff5c35; font-weight: 600; margin-bottom: 5px; display: block;">
-                  {{ block.settings.sub_title | default: "Collection" }}
+          {% for block in section.blocks %}
+            {% if block.type == 'category' %}
+
+              <div class="sz-cat-item">
+
+                <span>
+                  {{ block.settings.cat_name }}
                 </span>
-                <h4 class="sz-prod-title">{{ block.settings.title | default: collection.title }}</h4>
-                <div class="sz-price-row">
-                  <span class="sz-current-price">{{ block.settings.price_text }}</span>
-                </div>
+
+                <span class="sz-count-badge">
+                  {{ block.settings.cat_count }}
+                </span>
+
               </div>
-            </a>
+
+            {% endif %}
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+      <!-- PRICE -->
+      <div class="sz-filter-card">
+
+        <h3 class="sz-filter-title">
+          Price Range
+        </h3>
+
+        <span class="sz-price-label">
+          5000
+        </span>
+
+        <div class="sz-price-inputs">
+
+          <input type="text" class="sz-price-field" placeholder="₹0">
+
+          <input type="text" class="sz-price-field" placeholder="₹5000">
+
+        </div>
+
+      </div>
+
+      <!-- COLORS -->
+      <div class="sz-filter-card">
+
+        <h3 class="sz-filter-title">
+          Color
+        </h3>
+
+        <div class="sz-color-grid">
+
+          {% assign colors = "#ff5c35,#1a1c2b,#4a86ff,#2ecc71,#e74c3c,#f39c12,#9b59b6,#ffffff" | split: ',' %}
+
+          {% for color in colors %}
+
+            <div class="sz-color-dot" style="background-color:{{ color }};"></div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+      <!-- RATINGS -->
+      <div class="sz-filter-card">
+
+        <h3 class="sz-filter-title">
+          Rating
+        </h3>
+
+        <div class="sz-rating-row">
+          <span>on</span>
+          <span class="sz-stars">★★★★★</span>
+          <span>(5 star)</span>
+        </div>
+
+        <div class="sz-rating-row">
+          <span>on</span>
+          <span class="sz-stars">★★★★☆</span>
+          <span>(4+)</span>
+        </div>
+
+        <div class="sz-rating-row">
+          <span>on</span>
+          <span class="sz-stars">★★★☆☆</span>
+          <span>(3+)</span>
+        </div>
+
+      </div>
+
+      <!-- BUTTON -->
+      <button style="width:100%;background:#ff5c35;color:#fff;border:none;padding:16px;border-radius:12px;font-weight:600;cursor:pointer;font-size:15px;transition:0.3s;">
+        Apply Filters
+      </button>
+
+    </aside>
+
+    <!-- PRODUCTS -->
+    <main class="sz-product-content">
+
+      <!-- TOOLBAR -->
+      <div class="sz-toolbar">
+
+        <div class="sz-results-text">
+          Showing <span>1–9</span> of <span>148</span> products
+        </div>
+
+        <div class="sz-toolbar-right">
+
+          <div class="sz-sort-box">
+            Sort:
+            <span>Featured</span>
+            ▾
           </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </main>
-</div>
+
+          <div class="sz-view-options">
+
+            <div class="sz-view-btn active">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/>
+              </svg>
+            </div>
+
+            <div class="sz-view-btn" style="background:#f6f6f6;border:none;">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 11h16V5H4v6zm0 7h16v-6H4v6z"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- GRID -->
+      <div class="sz-grid">
+
+        {% for block in section.blocks %}
+
+          {% if block.type == 'collection_item' %}
+
+            <div class="sz-card" {{ block.shopify_attributes }}>
+
+              {%- assign collection = block.settings.collection -%}
+
+              <a href="{{ collection.url | default: '#' }}" style="text-decoration:none;color:inherit;">
+
+                <div class="sz-img-container">
+
+                  {% if block.settings.custom_image != blank %}
+
+                    <img src="{{ block.settings.custom_image | img_url: '600x' }}" alt="{{ block.settings.title }}">
+
+                  {% elsif collection.image != blank %}
+
+                    <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.title }}">
+
+                  {% else %}
+
+                    {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+
+                  {% endif %}
+
+                  <div class="sz-cart-btn">
+                    +
+                  </div>
+
+                </div>
+
+                <div class="sz-info">
+
+                  <span style="font-size:12px;color:#ff5c35;font-weight:600;margin-bottom:5px;display:block;">
+                    {{ block.settings.sub_title | default: "Collection" }}
+                  </span>
+
+                  <h4 class="sz-prod-title">
+                    {{ block.settings.title | default: collection.title }}
+                  </h4>
+
+                  <div class="sz-price-row">
+
+                    <span class="sz-current-price">
+                      {{ block.settings.price_text }}
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </a>
+
+            </div>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    </main>
+
+  </div>
+
 </section>
 
 {% schema %}
@@ -248,22 +748,59 @@
       "type": "category",
       "name": "Sidebar Category",
       "settings": [
-        { "type": "text", "id": "cat_name", "label": "Category Name", "default": "Footwear" },
-        { "type": "text", "id": "cat_count", "label": "Count", "default": "48" }
+        {
+          "type": "text",
+          "id": "cat_name",
+          "label": "Category Name",
+          "default": "Footwear"
+        },
+        {
+          "type": "text",
+          "id": "cat_count",
+          "label": "Count",
+          "default": "48"
+        }
       ]
     },
     {
       "type": "collection_item",
       "name": "Add Collection",
       "settings": [
-        { "type": "collection", "id": "collection", "label": "Link to Collection" },
-        { "type": "image_picker", "id": "custom_image", "label": "Custom Image (Optional)" },
-        { "type": "text", "id": "sub_title", "label": "Sub Title (Category)", "default": "Footwear" },
-        { "type": "text", "id": "title", "label": "Display Title", "default": "Nike Air Zoom" },
-        { "type": "text", "id": "price_text", "label": "Price Text", "default": "₹8,999" }
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Link to Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title (Category)",
+          "default": "Footwear"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Display Title",
+          "default": "Nike Air Zoom"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Price Text",
+          "default": "₹8,999"
+        }
       ]
     }
   ],
-  "presets": [{ "name": "Full Product Page" }]
+  "presets": [
+    {
+      "name": "Full Product Page"
+    }
+  ]
 }
 {% endschema %}
